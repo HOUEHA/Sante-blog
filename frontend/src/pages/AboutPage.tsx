@@ -21,7 +21,7 @@ const AboutPage = () => {
     setSubscriptionMessage('');
 
     try {
-      await apiService.subscribeToNewsletter(email);
+      await apiService.subscribeNewsletter(email);
       setSubscriptionMessage('Inscription réussie! Merci de votre confiance. Vous recevrez un email de confirmation.');
       setEmail('');
     } catch (error) {
