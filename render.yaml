@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: blog-sante-api
+    runtime: php
+    plan: free
+    buildCommand: |
+      cd backend && \
+      composer install --no-dev --optimize-autoloader && \
+      npm install && \
+      npm run build
+    startCommand: cd backend && php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+    healthCheckPath: /api/health
+
+databases:
+  - name: blog-sante-db
+    databaseName: blog_sante
+    user: blog_sante_user
+    plan: free
