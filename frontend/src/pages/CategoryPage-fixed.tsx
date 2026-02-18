@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ChevronRight, Calendar, Clock, User } from 'lucide-react';
-import { apiService, Article, Category } from '../services/api-fixed';
+import { Calendar, Clock, User } from 'lucide-react';
+import { apiService } from '../services/api-fixed';
+import type { Article, Category } from '../services/api-fixed';
 
 const CategoryPage: React.FC = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();

@@ -1,8 +1,9 @@
 // CreateArticleModal.tsx - Version Corrigée
 
-import React, { useState, useEffect } from 'react';
-import { X, Upload, Image as ImageIcon, Eye, Save } from 'lucide-react';
-import { apiService, Article, Category } from '../services/api-fixed';
+import React, { useState } from 'react';
+import { X, Eye, Save } from 'lucide-react';
+import { apiService } from '../services/api-fixed';
+import type { Category } from '../services/api-fixed';
 
 interface CreateArticleModalProps {
   isOpen: boolean;
@@ -29,7 +30,6 @@ const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
   });
   const [loading, setLoading] = useState(false);
   const [imageMode, setImageMode] = useState<'url' | 'upload'>('url');
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [preview, setPreview] = useState(false);
 
@@ -99,7 +99,6 @@ const CreateArticleModal: React.FC<CreateArticleModalProps> = ({
         read_time: 5
       });
       setImageMode('url');
-      setSelectedFile(null);
       setUploadProgress(0);
       
       alert('Article créé avec succès!');
