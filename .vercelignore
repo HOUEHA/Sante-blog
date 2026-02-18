@@ -1,0 +1,10 @@
+backend/
+node_modules/
+.env
+.env.local
+.env.production
+deploy.sh
+*.md
+!README.md
+!QUICK_DEPLOY.md
+!README_DEPLOYMENT.md
