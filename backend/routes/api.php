@@ -36,8 +36,9 @@ Route::post('/articles/recent', [ArticleController::class, 'recent']);
 Route::post('/articles/{slug}/related', [ArticleController::class, 'related']);
 Route::post('/articles', [ArticleController::class, 'index']);
 Route::post('/articles/{slug}', [ArticleController::class, 'show']);
-Route::post('/articles/{slug}/update', [ArticleController::class, 'update']);
-Route::post('/articles/{slug}/delete', [ArticleController::class, 'destroy']);
+Route::post('/articles/create', [ArticleController::class, 'store'])->middleware('simple.auth');
+Route::post('/articles/{slug}/update', [ArticleController::class, 'update'])->middleware('simple.auth');
+Route::post('/articles/{slug}/delete', [ArticleController::class, 'destroy'])->middleware('simple.auth');
 
 // Categories - POST only for all operations
 Route::post('/categories', [CategoryController::class, 'index']);
