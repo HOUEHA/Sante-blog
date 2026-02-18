@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "blog-sante-backend",
+  "builds": [
+    {
+      "src": "backend/composer.json",
+      "use": "@vercel/php"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/public/index.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/backend/public/index.php"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_KEY": "base64:YOUR_APP_KEY_HERE"
+  }
+}
